@@ -1,0 +1,43 @@
+//A program for Fantastic number
+//Author:Nikhil Singh Ji
+import java.util.*;
+public class Fascinating {
+public static void main(String[] args) {
+int n,i,j,k=0,d;
+long m,copy;
+String s;
+Scanner in=new Scanner(System.in);
+System.out.println("Enter a number");
+n=in.nextInt();
+if(Integer.toString(n).length()<3)//Checking if number has less than
+3 digits
+{
+System.out.println("Invalid input");
+System.exit(0);
+}
+s=Integer.toString(n)+Integer.toString(n*2)+Integer.toString(n*3);//Con
+catenating the products.
+System.out.println("Concatenated Products : "+ s);
+m=Long.parseLong(s);
+outer : for (i=1;i<=9;i++)
+{
+copy=m;
+while(copy>0)
+{
+d=(int)copy%10;
+copy/=10;
+if(d==i)
+{
+k=1;
+continue outer;//Continues the outer loop
+}
+else
+k=0;
+}
+}
+if(k==1)
+System.out.println(n+" is a Fantastic number.");
+else
+System.out.println(n+" is not a Fantastic number.");
+}
+}
